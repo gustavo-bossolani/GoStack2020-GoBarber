@@ -2,8 +2,9 @@ import { hash } from 'bcryptjs';
 import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
-import User from '../infra/typeorm/entities/User';
+
 import IUsersRepository from '../repositories/IUsersRepository';
+import User from '../infra/typeorm/entities/User';
 
 interface IRequestDTO {
   name: string;
