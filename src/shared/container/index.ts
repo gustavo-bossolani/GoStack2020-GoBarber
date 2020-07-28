@@ -3,6 +3,9 @@ import { container } from 'tsyringe';
 // Adicionando container de providers ao container 'principal'
 import '@modules/users/providers';
 
+// importando container dos providers
+import './providers';
+
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository';
 
