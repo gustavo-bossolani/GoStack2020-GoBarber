@@ -12,6 +12,9 @@ import AppointmentsRepository from '@modules/appointments/infra/typeorm/reposito
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
 
+// import IUserTokenRepository from '@modules/users/repositories/IUserTokenRepository';
+// import IUserTokenRepository from '@modules/users/infra/typeorm/repositories/';
+
 /**
  * Diferença entre register e registerSingleton:
  * A função register vai retornar uma instância da dependência a cada requisição
