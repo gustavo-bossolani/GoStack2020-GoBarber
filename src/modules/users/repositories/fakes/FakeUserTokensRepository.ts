@@ -1,6 +1,6 @@
 import { uuid } from 'uuidv4';
 
-import IUserTokenRepository from '../IUserTokenRepository';
+import IUserTokenRepository from '../IUserTokensRepository';
 import UserToken from '@modules/users/infra/typeorm/entities/UserToken';
 
 class FakeUserRepository implements IUserTokenRepository {

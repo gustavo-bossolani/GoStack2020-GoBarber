@@ -4,7 +4,7 @@ import AppError from '@shared/errors/AppError';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
-import IUserTokenRepository from '../repositories/IUserTokenRepository';
+import IUserTokenRepository from '../repositories/IUserTokensRepository';
 
 // import User from '../infra/typeorm/entities/User';
 
