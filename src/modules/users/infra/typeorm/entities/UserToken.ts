@@ -7,12 +7,12 @@ import {
   Generated,
 } from 'typeorm';
 
-@Entity('users')
+@Entity('user_tokens')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('uuid')
+  @Column()
   @Generated('uuid')
   token: string;
 
