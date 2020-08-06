@@ -86,7 +86,7 @@ describe('ResetPasswordService', () => {
       const customDate = new Date();
 
       // Vamos sempre estar 1 hora na frente da hora de inspiração do token
-      return customDate.setDate(customDate.getHours() + 3);
+      return customDate.setHours(customDate.getHours() + 3);
     });
 
     await expect(
@@ -96,10 +96,4 @@ describe('ResetPasswordService', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
-
-  // TODO
-  // Hash                   - Done
-  // 2h de expiração        - Done
-  // user token inexistente - Done
-  // user inexistente       - Done
 });

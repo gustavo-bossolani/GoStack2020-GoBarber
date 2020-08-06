@@ -7,19 +7,23 @@ import CreateSessionService from './CreateSessionService';
 import CreateUserService from './CreateUserService';
 
 describe('CreateUserSession', () => {
+  let fakeUserRepository: FakeUsersRepository;
+  let fakeHashProvider: FakeHashProvider;
+  let createUser: CreateUserService;
+  let createSession: CreateSessionService;
+
+  beforeEach(() => {
+    fakeUserRepository = new FakeUsersRepository();
+    fakeHashProvider = new FakeHashProvider();
+
+    createUser = new CreateUserService(fakeUserRepository, fakeHashProvider);
+    createSession = new CreateSessionService(
+      fakeUserRepository,
+      fakeHashProvider,
+    );
+  });
+
   it('should be able to create a new session', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const createUser = new CreateUserService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
-    const createSession = new CreateSessionService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
-
     const createdUser = await createUser.execute({
       name: 'Gustavo',
       email: 'gustavo@email.com',
@@ -36,15 +40,7 @@ describe('CreateUserSession', () => {
   });
 
   it('should not be able to create a new session with non existing user', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const createSession = new CreateSessionService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
-
-    expect(
+    await expect(
       createSession.execute({
         email: 'gustavo@email.com',
         password: '123456',
@@ -53,25 +49,13 @@ describe('CreateUserSession', () => {
   });
 
   it('should not be able to create a new session with wrong password', async () => {
-    const fakeUserRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const createUser = new CreateUserService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
-    const createSession = new CreateSessionService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
-
     await createUser.execute({
       name: 'Gustavo',
       email: 'gustavo@email.com',
       password: '123456',
     });
 
-    expect(
+    await expect(
       createSession.execute({
         email: 'gustavo@email.com',
         password: 'wrong-password',
