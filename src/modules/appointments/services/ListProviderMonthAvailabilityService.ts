@@ -56,8 +56,6 @@ export default class ListProviderMonthAvailabilityService {
       };
     });
 
-    console.log(availability);
-
     return availability;
   }
 }
