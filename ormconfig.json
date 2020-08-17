@@ -1,9 +1,11 @@
-{
+[
+  {
+    "name": "default",
     "type": "postgres",
+    "password": "root",
     "host": "localhost",
     "port": 5432,
     "username": "postgres",
-    "password": "root",
     "database": "gostack_gobarber",
     "entities": [
         "./src/modules/**/infra/typeorm/entities/*.ts"
@@ -14,4 +16,19 @@
     "cli": {
         "migrationsDir": "./src/shared/infra/typeorm/migrations"
     }
-}
+  },
+  {
+    "name": "mongo",
+    "type": "mongodb",
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true,
+    "url": "dotenv_url_connection",
+    "ssl": true,
+    "authSource": "admin",
+    "database": "gostack_gobarber",
+    "entities": [
+        "./src/modules/**/infra/typeorm/schemas/*.ts"
+    ]
+  }
+
+]

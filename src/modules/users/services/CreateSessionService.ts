@@ -60,6 +60,7 @@ class CreateSessionService {
      * O terceiro parâmetro são configuraões do próprio token.
      */
     const { secret, expiresIn } = authConfig.jwt;
+
     const token = sign({}, secret, {
       subject: user.id, // Sempre será o ID do usuário
       expiresIn, // Tempo de expiração do token
