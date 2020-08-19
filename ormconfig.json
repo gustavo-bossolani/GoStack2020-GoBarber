@@ -22,7 +22,7 @@
     "type": "mongodb",
     "useNewUrlParser": true,
     "useUnifiedTopology": true,
-    "url": "dotenv_url_connection",
+    "url": "mongodb+srv://mongo:root@gostack-gobarber.chvj6.mongodb.net/gostack_gobarber",
     "ssl": true,
     "authSource": "admin",
     "database": "gostack_gobarber",
