@@ -29,8 +29,6 @@ class ListProviderAppointments {
   }: IRequestDTO): Promise<Appointment[]> {
     const cacheKey = `provider-appointments:${provider_id}:${year}-${month}-${day}`;
 
-    console.log(`key de cache: ${cacheKey}`);
-
     let appointments = await this.cacheProvider.recover<Appointment[]>(
       cacheKey,
     );
