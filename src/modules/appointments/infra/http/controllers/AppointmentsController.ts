@@ -9,6 +9,7 @@ export default class AppointmentController {
     const { provider_id, date } = request.body;
 
     // Convertendo a Data de formato String para Date()
+    // Aqui a conversão de data já foi convertida pelo Joi
     // const parsedDate = parseISO(date);
 
     const service = container.resolve(CreateAppointsmentService);
